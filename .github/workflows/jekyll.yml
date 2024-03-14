@@ -3,8 +3,9 @@ name: Jekyll site CI
 
 on:
   push:
+    branches: [ supernord-landing-page ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ supernord-landing-page ]
   workflow_dispatch:
 
 permissions:
