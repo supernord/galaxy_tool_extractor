@@ -11,7 +11,7 @@ description: Add a plain text description here.
 
 This resource would not be possible without the following contributors:
 
-{% include contributor-tiles-all.html %}
+
 
 
 ## Acknowledgements
