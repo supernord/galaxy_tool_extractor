@@ -22,7 +22,15 @@ exclude:
 defaults:
   -
     scope:
-      path: ""
+      path: "pages"
+      type: "pages"
+    values:
+      permalink: /:basename
+      layout: "page"
+      sidebar: main
+  -
+    scope:
+      path: "index.md"
       type: "pages"
     values:
       permalink: /:basename
