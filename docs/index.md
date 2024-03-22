@@ -5,4 +5,4 @@ sidebar: false
 ---
 
 
-{% include table.html %}
+{% include index.html %}
