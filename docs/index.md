@@ -4,5 +4,6 @@ datatable: true
 sidebar: false
 ---
 
-
+<div markdown="0">
 {% include index.html %}
+</div>
