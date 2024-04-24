@@ -12,41 +12,50 @@ tags:
 authors:
   - name: Paul Zierep
     orcid: 0000-0003-2982-388X
-    affiliation: 1
+    affiliation: 1, a
   - name: Bérénice Batut
     orcid: 0000-0001-9852-1987
-    affiliation: 1, 2
-  - name: Nicola Soranzo
-    orcid: 0000-0003-3627-5340
-    affiliation: 3
+    affiliation: 1, 2, a
   - name: Matúš Kalaš
     orcid: 0000-0002-1509-4981
-    affiliation: 4
-  - name: Ove Johan Ragnar Gustafsson
-    orcid: 0000-0002-2977-5032
-    affiliation: 5
-  - name: Engy Nasr
-    orcid: 0000-0001-9047-4215
-    affiliation: 1
+    affiliation: 3
   - name: Tunc Kayikcioglu
     orcid: 0000-0003-2205-8062
     affiliation: 1
+  - name: Engy Nasr
+    orcid: 0000-0001-9047-4215
+    affiliation: 1
+  - name: Nicola Soranzo
+    orcid: 0000-0003-3627-5340
+    affiliation: 4
+  - name: Wai Cheng Thang
+    orchid: 0000-0002-1480-3563
+    affiliation: 5, 6
   - name: Joseph Wang
     orcid:
-    affiliation: 6
+    affiliation: 7
+  - name: Ove Johan Ragnar Gustafsson
+    orcid: 0000-0002-2977-5032
+    affiliation: 8
 affiliations:
   - name: Bioinformatics Group, Department of Computer Science, University of Freiburg, Freiburg, Germany
     index: 1
   - name: Institut Français de Bioinformatique, CNRS UAR 3601, Évry, France & Mésocentre Clermont-Auvergne, Université Clermont Auvergne, Aubiere, France
     index: 2
-  - name: Earlham Institute, Norwich Research Park, Norwich, UK
-    index: 3
   - name: Department of Informatics, University of Bergen, Norway; and ELIXIR Norway
+    index: 3
+  - name: Earlham Institute, Norwich Research Park, Norwich, UK
     index: 4
-  - name: Australian BioCommons, University of Melbourne, Melbourne, Victoria, Australia
+  - name: Queensland Cyber Infrastructure Foundation (QCIF), Australia
     index: 5
-  - name: Queensland Alliance for Agriculture and Food Innovation, The University of Queensland, Brisbane, Queensland, Australia
+  - name: Institute of Molecular Bioscience, University of Queensland, St Lucia, Australia
     index: 6
+  - name: Queensland Alliance for Agriculture and Food Innovation, The University of Queensland, Brisbane, Queensland, Australia
+    index: 7
+  - name: Australian BioCommons, University of Melbourne, Melbourne, Victoria, Australia
+    index: 8
+  - name: These authors contributed equally to this work
+    index: a
 date: 23 February 2024
 bibliography: paper.bib
 event: BH23EU
@@ -61,24 +70,24 @@ authors_short: Paul Zierep, Bérénice Batut, \emph{et al.}
 
 # Introduction or Background
 
-Galaxy[@citesAsAuthority:10.1093/nar/gkac247] is a web-based analysis platform offering almost 10,000 different tools, which are developed in various GitHub repositories.  
+Galaxy [@citesAsAuthority:10.1093/nar/gkac247] is a web-based analysis platform offering almost 10,000 different tools, which are developed in various GitHub repositories.  
 Furthermore, the Galaxy community embraces granular implementation of software tools as sub-modules. 
-In practice, this means that tool suites are separated into sets of Galaxy tools, also known as Galaxy wrappers, that contain functionality of a corresponding sub-component.
-Some key examples of tool suites include [Mothur](https://bio.tools/mothur)[@citesAsAuthority:doi:10.1128/AEM.01541-09] and [OpenMS](https://bio.tools/openms)[@citesAsAuthority:rost2016openms], which translate to tens and even hundreds of Galaxy tools. 
+In practice, this means that tool suites are separated into sets of Galaxy tools, also known as Galaxy wrappers, that contain the functionality of a corresponding sub-component.
+Some key examples of tool suites include [QIIME 2](https://bio.tools/qiime2) [@citesAsAuthority:Bolyen2019] and [OpenMS](https://bio.tools/openms) [@citesAsAuthority:rost2016openms], which translate to tens and even hundreds of Galaxy tools. 
 While granularity supports the composability of tools into diverse purpose-specific workflows, this decentralised development and modular architecture can make it difficult for Galaxy users to find and use tools. 
 It may also result in Galaxy tool-wrapper developers duplicating efforts by simultaneously wrapping the same software. 
-This is further complicated by the scarcity of tool metadata, which prevents filtering of tools as relevant for a specific scientific community or domain, and makes it impossible to employ advanced filtering by ontology terms like the ones from EDAM[@citesAsAuthority:black2021edam]. 
+This is further complicated by the scarcity of tool metadata, which prevents filtering of tools as relevant for a specific scientific community or domain, and makes it impossible to employ advanced filtering by ontology terms like the ones from EDAM [@citesAsAuthority:black2021edam]. 
 The final challenge is also an opportunity: the global and cross-domain nature of Galaxy means that it is a big community. 
 Solving the visibility of tools across this "ecosystem", and the resulting benefits, are far-reaching for the global collaborative development of data-analysis tools and workflows.
 
 To provide the scientific community with a comprehensive list of annotated Galaxy tools, 
-we developed a pipeline at the [ELIXIR BioHackathon Europe 2023](https://2023.biohackathon-europe.org) that collects Galaxy wrappers from a list of GitHub repositories and automatically extracts their metadata (including Conda version [@citesAsAuthority:conda], bio.tools identifier[@citesAsAuthority:biotoolsSchema, @usesDataFrom:Ison2019], BIII identifier[@citesAsAuthority:bioimageWorkflows], and EDAM annotations). 
-The workflow also queries the availability of the tools from the three main Galaxy servers (_usegalaxy.*_) as well as usage statistics from [usegalaxy.eu](https://usegalaxy.eu) (Note: the other main Galaxy servers, [usegalaxy.org](https://usagalaxy.org) and [usegalaxy.org.au](https://usagalaxy.org.au), will be queried for usage statistics in coming updates). 
+we developed a pipeline at the [ELIXIR BioHackathon Europe 2023](https://2023.biohackathon-europe.org) that collects Galaxy wrappers from a list of GitHub repositories and automatically extracts their metadata (including Conda version [@citesAsAuthority:conda], bio.tools identifier [@citesAsAuthority:biotoolsSchema][@usesDataFrom:Ison2019], BIII identifier [@citesAsAuthority:bioimageWorkflows], and EDAM annotations). 
+The workflow also queries the availability of the tools from the three main Galaxy servers (usegalaxy.*) as well as usage statistics from [usegalaxy.eu](https://usegalaxy.eu) (Note: the other main Galaxy servers, [usegalaxy.org](https://usagalaxy.org) and [usegalaxy.org.au](https://usagalaxy.org.au), will be queried for usage statistics in coming updates). 
 
 Crucially, the pipeline can filter its inputs to only include tools that are relevant to a specific research community. 
-Based on the selected filters, a community-specific interactive table is generated that can be embedded, _e.g._ into the respective [Galaxy Hub](https://galaxyproject.org/) webpage or [Galaxy subdomain](https://galaxyproject.org/eu/subdomains/). 
+Based on the selected filters, a community-specific interactive table is generated that can be embedded, e.g. into the respective [Galaxy Hub](https://galaxyproject.org/) webpage or [Galaxy subdomain](https://galaxyproject.org/eu/subdomains/). 
 This table allows further filtering and searching for fine-grained tool selection. 
-The pipeline is fully automated and executes on a weekly basis. 
+The pipeline is fully automated and executes weekly. 
 Any scientific community can apply the pipeline to create a table specific to their needs.
 
 An interactive table that presents metadata is only as useful as the metadata annotations it is capturing. 
@@ -89,7 +98,7 @@ Annotation guidelines were established for this purpose, the process of updating
 This effort allowed the team to connect more than 50 tools to their respective bio.tools entry, update the registry entry, and collectively peer-review the results. 
 
 The established pipeline and the annotation guidelines can support any scientific community to make their Galaxy tools more findable, visible, comparable, understandable, and accessible. 
-Here, we describe the methods and processes that resulted from this project, and highlight how this will now allow the microGalaxy community to confidently navigate an ever-expanding landscape of research software in the Galaxy framework.
+Here, we describe the methods and processes that resulted from this project and highlight how this will now allow the microGalaxy community to confidently navigate an ever-expanding landscape of research software in the Galaxy framework.
 
 
 # Methods
@@ -97,16 +106,16 @@ Here, we describe the methods and processes that resulted from this project, and
 ## Domain-specific interactive tools table
 
 To create the domain-specific interactive tools table, Galaxy tool-wrapper suites are first parsed from across multiple GitHub repositories. 
-In effect, the repositories monitored by the planemo-monitor[@citesAsAuthority:Bray2022.03.13.483965] are scraped using a custom script. 
-The planemo-monitor is part of the Galaxy tool-update infrastructure, and keeps track of the most up-to-date tool development repositories.
+In effect, the repositories monitored by the planemo-monitor [@citesAsAuthority:Bray2022.03.13.483965] are scraped using a custom script. 
+The planemo-monitor is part of the Galaxy tool-update infrastructure and keeps track of the most up-to-date tool development repositories.
 
 Metadata is extracted from each parsed tool-wrapper suite. 
-This includes: wrapper suite ID, scientific category, Bioconda dependency, and a repository URL from bio.tools. 
+This includes wrapper suite ID, scientific category, Bioconda dependency, and a repository URL from bio.tools. 
 As a tool suite can be composed of multiple individual tools, the tool IDs for each tool are also extracted.
-The bio.tools reference is used to request metadata annotations via the bio.tools API, including bio.tools description and functionality annotation using EDAM ontology concepts[@usesDataFrom:black2021edam]. 
-The latest Conda package version is retrieved via the Bioconda API and compared to the Galaxy tool version to determine the tool’s update state (_i.e._ to update, or no update required). 
+The bio.tools reference is used to request metadata annotations via the bio.tools API, including bio.tools description and functionality annotation using EDAM ontology concepts [@usesDataFrom:black2021edam]. 
+The latest Conda package version is retrieved via the Bioconda API and compared to the Galaxy tool version to determine the tool’s update state (i.e. to update, or no update required). 
 
-The Galaxy API is used to query if each tool is installed on one of the three usegalaxy.* Galaxy servers ([usegalaxy.eu](https://usegalaxy.eu/), [usegalaxy.org](https://usegalaxy.org/), [usegalaxy.org.au](https://usegalaxy.org.au/)). Furthermore, the tool usage statistics can be retrieved from an SQL query that needs to be executed by Galaxy administrators. 
+The Galaxy API is used to query if each tool is installed on one of the three UseGalaxy servers ([usegalaxy.eu](https://usegalaxy.eu/), [usegalaxy.org](https://usegalaxy.org/), [usegalaxy.org.au](https://usegalaxy.org.au/)). Furthermore, the tool usage statistics can be retrieved from an SQL query that needs to be executed by Galaxy administrators. 
 The query used in the current implementation shows the overall tool usage as well as how many users executed a tool in the last 2 years on the European server ([usegalaxy.eu](https://usegalaxy.eu/)). 
 
 The output of the pipeline is a table that combines Galaxy wrappers with their metadata. 
@@ -130,7 +139,7 @@ The workflow is run weekly via GitHub Actions continuous integration, providing 
 The usage of an iframe enables updates for the table to propagate automatically to any website where it is deployed. 
 
 Any Galaxy community can use the pipeline by adding a folder in the [project GitHub repository](https://github.com/galaxyproject/galaxy_tool_extractor/). 
-To initialise the pipeline for a new community you need to add a new subfolder of `data/communities/` , and inside it add a file called 'categories' with a list of Galaxy ToolShed [@blankenberg2014dissemination] categories. 
+To initialise the pipeline for a new community you need to add a new subfolder of `data/communities/` , and inside it add a file called 'categories' with a list of Galaxy ToolShed [@citesAsAuthority:blankenberg2014dissemination] categories. 
 Additionally, tools that should be excluded or included after filtering, can be added to respective files as well. 
 A working example of the community configuration files can be found in the folder for the microGalaxy community.
 
@@ -150,7 +159,7 @@ The reason for this is that even if a bio.tools identifier exists in a tool wrap
 This is an observation based on real-world annotation errors and serves as a useful supporting step to improve Galaxy wrapper annotations and the completeness of the bio.tools registry. 
 In addition, if a bio.tools identifier is not included in the wrapper, this does not mean that there is not a bio.tools identifier available in the registry.
 
-There are then two curation paths to choose from, depending on whether a bio.tools identifier exists in the XML wrapper. In both cases, if no bio.tools entry exists, a new entry should be created and updated using the bio.tools wizard. The creation and update of an entry includes adding concepts from the EDAM ontology. This annotation process can be simplified through the use of [EDAM Browser](https://edamontology.github.io/edam-browser/)[@citesAsAuthority:edamBrowser, @citesAsAuthority:edamBrowserCode].
+There are then two curation paths to choose from, depending on whether a bio.tools identifier exists in the XML wrapper. In both cases, if no bio.tools entry exists, a new entry should be created and updated using the bio.tools wizard. The creation and update of an entry includes adding concepts from the EDAM ontology. This annotation process can be simplified through the use of [EDAM Browser](https://edamontology.github.io/edam-browser/) [@citesAsAuthority:edamBrowser][@citesAsAuthority:edamBrowserCode].
 
 In the case where no bio.tools identifier exists in the Galaxy XML wrapper, the development repository needs to be forked and a new branch created. 
 A new xref snippet can then be added, and a pull request opened against the original repository.
@@ -162,13 +171,13 @@ Figure \ref{annotation_workflow} shows a step-by-step breakdown of the above pro
 
 # Outcomes and results
 
-There were multiple concrete outcomes from this BioHackathon project, including the ability to create interactive Galaxy tools tables as needed for scientific communities, a process for updating bio.tools, in-development Galaxy Training Network (GTN) tutorials[@citesAsAuthority:batut_community-driven_2018] describing this process, and an update to the [Galaxy IUC](https://galaxyproject.org/iuc/) tool wrapping [standards](https://galaxy-iuc-standards.readthedocs.io/en/latest/index.html). 
+There were multiple concrete outcomes from this BioHackathon project, including the ability to create interactive Galaxy tools tables as needed for scientific communities, a process for updating bio.tools, in-development Galaxy Training Network (GTN) tutorials [@citesAsAuthority:batut_community-driven_2018] describing this process, and an update to the [Galaxy IUC](https://galaxyproject.org/iuc/) tool wrapping [standards](https://galaxy-iuc-standards.readthedocs.io/en/latest/index.html). 
 These are described in more detail below.
 
 
 ## Prototype interactive table for Galaxy communities
 
-The described workflow for the Galaxy tool metadata extractor (see Figure \ref{metadata_extractor_pipeline}) was successfully implemented ([GitHub repository](https://github.com/galaxyproject/galaxy_tool_extractor)) and could more then 1,300 Galaxy tool suites (see the [GitHub repository pages](https://galaxyproject.github.io/galaxy_tool_metadata_extractor) for an up-to-date table).
+The described workflow for the Galaxy tool metadata extractor (see Figure \ref{metadata_extractor_pipeline}) was successfully implemented ([GitHub repository](https://github.com/galaxyproject/galaxy_tool_extractor)) and could extract more than 1,300 Galaxy tool suites (see the [GitHub repository pages](https://galaxyproject.github.io/galaxy_tool_metadata_extractor) for an up-to-date table).
 Of those tool suites, only 267 had a bio.tools identifier, which highlights the importance of performing the annotation process in parallel and complementing the tools with additional metadata. 
 An example view of the created interactive table is shown in Figure \ref{web_table}. 
 As mentioned above, the filtered table for the microGalaxy community has already been embedded in the [Hub page for microGalaxy](https://galaxyproject.org/community/sig/microbial#tools), as well as the dedicated [microGalaxy subdomain](https://microgalaxy.usegalaxy.eu/). 
@@ -191,8 +200,8 @@ A rerun of the Galaxy tool metadata extractor pipeline collected the additional 
 
 To provide the Galaxy research communities with simple and straightforward guide to annotating their respective tool stacks, the described work has been converted into two GTN tutorials:
 
-- [Adding and updating best practice metadata for Galaxy tools using the bio.tools registry](https://gxy.io/GTN:T00421) [@citeAs:dev-tool-annotation]
-- [Creation of an interactive Galaxy tools table for your community](https://training.galaxyproject.org/training-material/topics/dev/tutorials/community-tool-table/tutorial.html) [@citeAs:dev-community-tool-table]
+- [Adding and updating best practice metadata for Galaxy tools using the bio.tools registry](https://gxy.io/GTN:T00421) [@citesAsAuthority:dev_tool_annotation]
+- [Creation of an interactive Galaxy tools table for your community](https://training.galaxyproject.org/training-material/topics/dev/tutorials/community-tool-table/tutorial.html) [@citesAsAuthority:dev_community_tool_table]
 
 The guidelines created were also used to update the [best practices for creating Galaxy tools of the IUC repository](https://galaxy-iuc-standards.readthedocs.io/en/latest/best_practices/tool_xml.html).
 
@@ -200,12 +209,12 @@ The guidelines created were also used to update the [best practices for creating
 # Conclusion and outlook
 
 The project was able to successfully meet its aim of creating reusable prototypes and processes that make the richness of the Galaxy tools ecosystem more discoverable and understandable.
-Central to this work was the Galaxy tool metadata extractor pipeline, which is currently generating comprehensive and interactive tabular summaries of Galaxy tools for the [microbial data](https://galaxyproject.org/community/sig/microbial/) and [image analysis](https://galaxyproject.org/use/imaging/) communities within Galaxy (with EU BioHackathon 2023 [Project 16](https://github.com/elixir-europe/biohackathon-projects-2023/tree/main/16)). The metadata extractor can be reused by any Galaxy group or community. For example, the [biodiversity and ecology](https://galaxyproject.org/use/ecology/) community will employ this pipeline in the near future[@citesAsAuthority:elixirBiodiversity].
-The generated tabular tool summary provides valuable information that extends beyond the use case of listing community tools. Therefore, an integration with the [Research Software Ecosystem (RSEc)](https://github.com/research-software-ecosystem/content)[@citeAsAuthority:RSEc] is currently being worked on.
+Central to this work was the Galaxy tool metadata extractor pipeline, which is currently generating comprehensive and interactive tabular summaries of Galaxy tools for the [microbial data](https://galaxyproject.org/community/sig/microbial/) and [image analysis](https://galaxyproject.org/use/imaging/) communities within Galaxy (with EU BioHackathon 2023 [Project 16](https://github.com/elixir-europe/biohackathon-projects-2023/tree/main/16)). The metadata extractor can be reused by any Galaxy group or community. For example, the [biodiversity and ecology](https://galaxyproject.org/use/ecology/) community will employ this pipeline in the near future [@citesAsAuthority:elixirBiodiversity].
+The generated tabular tool summary provides valuable information that extends beyond the use case of listing community tools. Therefore, an integration with the [Research Software Ecosystem (RSEc)](https://github.com/research-software-ecosystem/content) [@citesAsAuthority:RSEc] is currently being worked on.
 Various updates of the Galaxy tool metadata extractor pipeline are also envisioned, such as the integration of comprehensive usage statistics for all large Galaxy servers, additional bio.tools metadata, and a user-friendly integration of manual curation steps.
 
 A set of updates to standards and processes was also created. 
-These will support the on-going growth of the metadata hosted by the interactive tables: primarily by helping communities to maintain and extend the annotations of Galaxy tool wrappers, and the bio.tools ecosystem on which these wrapper annotations depend.
+These will support the ongoing growth of the metadata hosted by the interactive tables: primarily by helping communities to maintain and extend the annotations of Galaxy tool wrappers, and the bio.tools ecosystem on which these wrapper annotations depend.
 
 
 # Acknowledgements
